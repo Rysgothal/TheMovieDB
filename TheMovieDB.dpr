@@ -26,11 +26,6 @@ begin
   Application.CreateForm(TfrmAutenticacao, frmAutenticacao);
   Application.MainFormOnTaskbar := True;
 
-  if frmAutenticacao.Visible then
-  begin
-    frmAutenticacao.Hide;
-  end;
-
   if frmAutenticacao.ShowModal <> mrOk then
   begin
     Application.Terminate;

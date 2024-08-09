@@ -58,8 +58,7 @@ end;
 
 procedure TfrmAutenticacao.btnSairClick(Sender: TObject);
 begin
-  frmAutenticacao.ModalResult := mrCancel;
-  Close;
+  Application.Terminate;
 end;
 
 procedure TfrmAutenticacao.CriarSessaoConvidado;

@@ -14,7 +14,6 @@ object frmAutenticacao: TfrmAutenticacao
   Font.Style = []
   KeyPreview = True
   Position = poScreenCenter
-  Visible = True
   OnClose = FormClose
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown

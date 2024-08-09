@@ -22,17 +22,17 @@ object frmPrincipal: TfrmPrincipal
     Height = 188
     TabOrder = 0
     object Panel20: TPanel
-      Left = 3738
+      Left = 2223
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 0
-      ExplicitLeft = 3819
+      ExplicitLeft = 2811
       object VirtualImage20: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -46,17 +46,17 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel19: TPanel
-      Left = 3537
+      Left = 2106
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 1
-      ExplicitLeft = 3618
+      ExplicitLeft = 2778
       object VirtualImage19: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -70,17 +70,17 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel18: TPanel
-      Left = 3336
+      Left = 1989
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 2
-      ExplicitLeft = 3417
+      ExplicitLeft = 2661
       object VirtualImage18: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -94,17 +94,17 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel17: TPanel
-      Left = 3135
+      Left = 1872
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 3
-      ExplicitLeft = 3216
+      ExplicitLeft = 2544
       object VirtualImage17: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -118,17 +118,17 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel16: TPanel
-      Left = 2934
+      Left = 1755
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 4
-      ExplicitLeft = 3015
+      ExplicitLeft = 2427
       object VirtualImage16: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -142,17 +142,17 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel15: TPanel
-      Left = 2733
+      Left = 1638
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 5
-      ExplicitLeft = 2814
+      ExplicitLeft = 2310
       object VirtualImage15: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -166,17 +166,17 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel14: TPanel
-      Left = 2532
+      Left = 1521
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 6
-      ExplicitLeft = 2613
+      ExplicitLeft = 2193
       object VirtualImage14: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -190,17 +190,17 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel13: TPanel
-      Left = 2331
+      Left = 1404
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 7
-      ExplicitLeft = 2412
+      ExplicitLeft = 2076
       object VirtualImage13: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -214,17 +214,17 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel12: TPanel
-      Left = 2130
+      Left = 1287
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 8
-      ExplicitLeft = 2211
+      ExplicitLeft = 1959
       object VirtualImage12: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -238,17 +238,17 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel11: TPanel
-      Left = 1929
+      Left = 1170
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 9
-      ExplicitLeft = 2010
+      ExplicitLeft = 1842
       object VirtualImage11: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -262,17 +262,17 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel10: TPanel
-      Left = 1728
+      Left = 1053
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 10
-      ExplicitLeft = 1809
+      ExplicitLeft = 1725
       object VirtualImage10: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -286,17 +286,16 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel9: TPanel
-      Left = 1527
+      Left = 936
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 11
-      ExplicitLeft = 1608
       object VirtualImage9: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -310,17 +309,16 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel8: TPanel
-      Left = 1326
+      Left = 819
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 12
-      ExplicitLeft = 1407
       object VirtualImage8: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -334,17 +332,16 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel7: TPanel
-      Left = 1125
+      Left = 702
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 13
-      ExplicitLeft = 1206
       object VirtualImage7: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -358,17 +355,16 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel6: TPanel
-      Left = 924
+      Left = 585
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 14
-      ExplicitLeft = 1005
       object VirtualImage6: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -382,17 +378,16 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel5: TPanel
-      Left = 723
+      Left = 468
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 15
-      ExplicitLeft = 804
       object VirtualImage5: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -406,17 +401,16 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel4: TPanel
-      Left = 522
+      Left = 351
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 16
-      ExplicitLeft = 603
       object VirtualImage4: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -430,17 +424,16 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel3: TPanel
-      Left = 321
+      Left = 234
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 17
-      ExplicitLeft = 402
       object VirtualImage3: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -454,17 +447,16 @@ object frmPrincipal: TfrmPrincipal
       end
     end
     object Panel2: TPanel
-      Left = 120
+      Left = 117
       Top = 0
-      Width = 201
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 18
-      ExplicitLeft = 201
       object VirtualImage2: TVirtualImage
         Left = 1
         Top = 1
-        Width = 199
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -480,14 +472,14 @@ object frmPrincipal: TfrmPrincipal
     object Panel1: TPanel
       Left = 0
       Top = 0
-      Width = 120
+      Width = 117
       Height = 167
       Align = alLeft
       TabOrder = 19
       object VirtualImage1: TVirtualImage
         Left = 1
         Top = 1
-        Width = 118
+        Width = 115
         Height = 165
         Align = alClient
         ImageCollection = ImageCollection1
@@ -501,9 +493,30 @@ object frmPrincipal: TfrmPrincipal
       end
     end
   end
+  object btnMaisPopulares: TButton
+    Left = 884
+    Top = 247
+    Width = 75
+    Height = 25
+    Caption = 'Mais...'
+    TabOrder = 1
+  end
+  object pnlCarregandoFilmesPopulares: TPanel
+    Left = 8
+    Top = 53
+    Width = 956
+    Height = 187
+    TabOrder = 2
+    object LoadingFilmesPopular: TActivityIndicator
+      Left = 459
+      Top = 77
+      Animate = True
+      FrameDelay = 31
+    end
+  end
   object ImageCollection1: TImageCollection
     Images = <>
-    Left = 24
+    Left = 864
     Top = 8
   end
 end
