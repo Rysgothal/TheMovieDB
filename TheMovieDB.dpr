@@ -15,7 +15,8 @@ uses
   TheMovieDB.Helpers.Componentes in 'Helpers\TheMovieDB.Helpers.Componentes.pas',
   TheMovieDB.Helpers.TiposAuxiliares in 'Helpers\TheMovieDB.Helpers.TiposAuxiliares.pas',
   TheMovieDB.Classes.JSON.SessaoConvidado in 'Classes\JSON\TheMovieDB.Classes.JSON.SessaoConvidado.pas',
-  TheMovieDB.Classes.JSON.FilmesPopulares in 'Classes\JSON\TheMovieDB.Classes.JSON.FilmesPopulares.pas';
+  TheMovieDB.Classes.JSON.FilmesPopulares in 'Classes\JSON\TheMovieDB.Classes.JSON.FilmesPopulares.pas',
+  TheMovieDB.Classes.Thread in 'Classes\TheMovieDB.Classes.Thread.pas';
 
 {$R *.res}
 
@@ -29,6 +30,7 @@ begin
   if frmAutenticacao.ShowModal <> mrOk then
   begin
     Application.Terminate;
+    Exit;
   end;
 
   FreeAndNil(frmAutenticacao);

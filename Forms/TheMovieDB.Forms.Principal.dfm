@@ -20,6 +20,8 @@ object frmPrincipal: TfrmPrincipal
     Top = 53
     Width = 953
     Height = 188
+    DoubleBuffered = True
+    ParentDoubleBuffered = False
     TabOrder = 0
     object Panel20: TPanel
       Left = 2223
@@ -28,7 +30,6 @@ object frmPrincipal: TfrmPrincipal
       Height = 167
       Align = alLeft
       TabOrder = 0
-      ExplicitLeft = 2811
       object VirtualImage20: TVirtualImage
         Left = 1
         Top = 1
@@ -52,7 +53,6 @@ object frmPrincipal: TfrmPrincipal
       Height = 167
       Align = alLeft
       TabOrder = 1
-      ExplicitLeft = 2778
       object VirtualImage19: TVirtualImage
         Left = 1
         Top = 1
@@ -76,7 +76,6 @@ object frmPrincipal: TfrmPrincipal
       Height = 167
       Align = alLeft
       TabOrder = 2
-      ExplicitLeft = 2661
       object VirtualImage18: TVirtualImage
         Left = 1
         Top = 1
@@ -100,7 +99,6 @@ object frmPrincipal: TfrmPrincipal
       Height = 167
       Align = alLeft
       TabOrder = 3
-      ExplicitLeft = 2544
       object VirtualImage17: TVirtualImage
         Left = 1
         Top = 1
@@ -124,7 +122,6 @@ object frmPrincipal: TfrmPrincipal
       Height = 167
       Align = alLeft
       TabOrder = 4
-      ExplicitLeft = 2427
       object VirtualImage16: TVirtualImage
         Left = 1
         Top = 1
@@ -148,7 +145,6 @@ object frmPrincipal: TfrmPrincipal
       Height = 167
       Align = alLeft
       TabOrder = 5
-      ExplicitLeft = 2310
       object VirtualImage15: TVirtualImage
         Left = 1
         Top = 1
@@ -172,7 +168,6 @@ object frmPrincipal: TfrmPrincipal
       Height = 167
       Align = alLeft
       TabOrder = 6
-      ExplicitLeft = 2193
       object VirtualImage14: TVirtualImage
         Left = 1
         Top = 1
@@ -196,7 +191,6 @@ object frmPrincipal: TfrmPrincipal
       Height = 167
       Align = alLeft
       TabOrder = 7
-      ExplicitLeft = 2076
       object VirtualImage13: TVirtualImage
         Left = 1
         Top = 1
@@ -220,7 +214,6 @@ object frmPrincipal: TfrmPrincipal
       Height = 167
       Align = alLeft
       TabOrder = 8
-      ExplicitLeft = 1959
       object VirtualImage12: TVirtualImage
         Left = 1
         Top = 1
@@ -244,7 +237,6 @@ object frmPrincipal: TfrmPrincipal
       Height = 167
       Align = alLeft
       TabOrder = 9
-      ExplicitLeft = 1842
       object VirtualImage11: TVirtualImage
         Left = 1
         Top = 1
@@ -268,7 +260,6 @@ object frmPrincipal: TfrmPrincipal
       Height = 167
       Align = alLeft
       TabOrder = 10
-      ExplicitLeft = 1725
       object VirtualImage10: TVirtualImage
         Left = 1
         Top = 1
