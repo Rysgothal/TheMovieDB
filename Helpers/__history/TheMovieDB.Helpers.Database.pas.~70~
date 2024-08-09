@@ -1,0 +1,36 @@
+unit TheMovieDB.Helpers.Database;
+
+interface
+
+uses
+  IBX.IBQuery, IBX.IBDatabase;
+
+type
+  TIBQueryHelper = class helper for TIBQuery
+  public
+    constructor Criar(pBanco: TIBDatabase; pTransacao: TIBTransaction = nil); overload;
+  end;
+
+implementation
+
+{ THelperQuery }
+
+constructor THelperQuery.Criar(pConexao: TIBDataBase; pTransacao: TIBTransaction = nil): TIBQuery;
+begin
+  if not Assigned(pConexao) then
+  begin
+    Exit(nil);
+  end;
+
+  if not Assigned(pTransacao) then
+  begin
+    pTransacao := TIBTransaction.Create(pConexao, ibtrReadCommitted);
+  end;
+
+  pTransacao.DefaultDatabase := pConexao;
+  Result := TIBQuery.Create(pTransacao);
+  Result.Close;
+  Result.SQL.Clear;
+end;
+
+end.

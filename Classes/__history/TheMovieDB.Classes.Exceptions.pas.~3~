@@ -1,0 +1,14 @@
+unit TheMovieDB.Classes.Exceptions;
+
+interface
+
+uses
+  System.SysUtils;
+
+type
+  ETokenInvalido = class(Exception);
+
+
+implementation
+
+end.

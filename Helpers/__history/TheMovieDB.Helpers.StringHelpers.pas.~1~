@@ -1,0 +1,7 @@
+unit TheMovieDB.Helpers.StringHelpers;
+
+interface
+
+implementation
+
+end.

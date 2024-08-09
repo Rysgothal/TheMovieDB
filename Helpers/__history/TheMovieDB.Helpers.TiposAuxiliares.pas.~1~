@@ -1,0 +1,7 @@
+unit TheMovieDB.Helpers.TiposAuxiliares;
+
+interface
+
+implementation
+
+end.

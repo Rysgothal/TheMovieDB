@@ -1,0 +1,13 @@
+unit TheMovieDB.Helpers.Componentes;
+
+interface
+
+type
+  TComponenteHelper = class Helper for TWinControl
+  public
+    procedure
+  end;
+
+implementation
+
+end.

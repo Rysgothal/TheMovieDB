@@ -1,0 +1,31 @@
+unit TheMovieDB.Helpers.Componentes;
+
+interface
+
+uses
+  Vcl.Controls, vcl.StdCtrls;
+
+type
+  TComponenteHelper = class Helper for TWinControl
+  public
+    procedure Focar;
+  end;
+
+  TCustomEditHelper = class Helper for TCustomEdit
+  public
+
+  end;
+
+implementation
+
+{ TComponenteHelper }
+
+procedure TComponenteHelper.Focar;
+begin
+  if CanFocus then
+  begin
+    SetFocus;
+  end;
+end;
+
+end.

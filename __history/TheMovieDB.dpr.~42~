@@ -1,0 +1,38 @@
+program TheMovieDB;
+
+uses
+  Vcl.Forms,
+  Vcl.Controls,
+  System.SysUtils,
+  TheMovieDB.Forms.Autenticacao in 'Forms\TheMovieDB.Forms.Autenticacao.pas' {frmAutenticacao},
+  TheMovieDB.Forms.Principal in 'Forms\TheMovieDB.Forms.Principal.pas' {frmPrincipal},
+  TheMovieDB.Classes.Banco in 'Classes\TheMovieDB.Classes.Banco.pas',
+  TheMovieDB.Classes.Configuracao in 'Classes\TheMovieDB.Classes.Configuracao.pas',
+  TheMovieDB.Classes.Exceptions in 'Classes\TheMovieDB.Classes.Exceptions.pas',
+  TheMovieDB.Classes.JSONSessaoConvidado in 'Classes\TheMovieDB.Classes.JSONSessaoConvidado.pas',
+  TheMovieDB.Classes.TheMovieDBApi in 'Classes\TheMovieDB.Classes.TheMovieDBApi.pas',
+  TheMovieDB.Helpers.TheMovieDB in 'Helpers\TheMovieDB.Helpers.TheMovieDB.pas';
+
+{$R *.res}
+
+begin
+  ReportMemoryLeaksOnShutdown := True;
+
+  Application.Initialize;
+  Application.CreateForm(TfrmAutenticacao, frmAutenticacao);
+  Application.MainFormOnTaskbar := True;
+
+  if frmAutenticacao.Visible then
+  begin
+    frmAutenticacao.Hide;
+  end;
+
+  if frmAutenticacao.ShowModal <> mrOk then
+  begin
+    Application.Terminate;
+  end;
+
+  FreeAndNil(frmAutenticacao);
+  Application.CreateForm(TfrmAutenticacao, frmAutenticacao);
+  Application.Run;
+end.

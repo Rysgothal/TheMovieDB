@@ -1,0 +1,19 @@
+unit TheMovieDB.Helpers.Principal;
+
+interface
+
+type
+  THelpersTheMovieDB = class abstract
+    function StatusOK(const pStatusCode: Integer): Boolean;
+  end;
+
+implementation
+
+{ THelpersTheMovieDB }
+
+function THelpersTheMovieDB.StatusOK(const pStatusCode: Integer): Boolean;
+begin
+  Result := (pStatusCode >= 200) and (pStatusCode <= 299);
+end;
+
+end.

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2024/02/15 08:34:46.000.946,=C:\Users\Lucas Frade\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/02/15 12:26:46.000.879,=C:\Users\Lucas Frade\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/08/05 17:16:44.000.104,=C:\Users\Lucas Frade\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/08/05 17:22:08.000.287,=C:\Users\Lucas Frade\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2024/08/05 17:22:37.000.957,C:\Users\Lucas Frade\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\Projetos\TheMovieDB\Forms\TheMovieDB.Forms.Principal.pas</Transaction>
+    <Transaction>2024/08/05 17:22:37.000.957,C:\Users\Lucas Frade\Documents\Embarcadero\Studio\Projects\Unit1.dfm=D:\Projetos\TheMovieDB\Forms\TheMovieDB.Forms.Principal.dfm</Transaction>
+    <Transaction>2024/08/05 17:22:49.000.697,C:\Users\Lucas Frade\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Projetos\TheMovieDB\TheMovieDB.dproj</Transaction>
+    <Transaction>2024/08/05 17:23:31.000.833,=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/05 17:23:54.000.262,D:\Projetos\TheMovieDB\Unit1.pas=D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.Principal.pas</Transaction>
+    <Transaction>2024/08/05 18:02:16.000.625,=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/05 18:02:39.000.113,D:\Projetos\TheMovieDB\Helpers\TheMovieDB.Helpers.Principal.pas=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/06 07:55:15.000.158,=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/06 07:57:10.000.032,D:\Projetos\TheMovieDB\Unit1.pas=D:\Projetos\TheMovieDB\Forms\TheMovieDB.Forms.Autenticacao.pas</Transaction>
+    <Transaction>2024/08/06 07:57:10.000.032,D:\Projetos\TheMovieDB\Unit1.dfm=D:\Projetos\TheMovieDB\Forms\TheMovieDB.Forms.Autenticacao.dfm</Transaction>
+    <Transaction>2024/08/06 08:56:53.000.276,=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/06 09:05:30.000.559,=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/06 09:49:11.000.109,=D:\Projetos\TheMovieDB\PassWord.pas</Transaction>
+    <Transaction>2024/08/06 10:46:40.000.617,D:\Projetos\TheMovieDB\Unit1.pas=D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.JSONSessaoConvidado.pas</Transaction>
+    <Transaction>2024/08/06 17:28:17.000.134,=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/06 17:28:51.000.210,D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.Exceptions.pas=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/06 17:35:55.000.291,=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/06 17:38:17.000.776,D:\Projetos\TheMovieDB\Unit1.pas=D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.Banco.pas</Transaction>
+    <Transaction>2024/08/06 17:46:36.000.196,=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/06 17:47:02.000.557,D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.Configuracao.pas=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/07 08:32:00.000.874,D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.TheMovieDBApi.pas=D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.Principal.pas</Transaction>
+    <Transaction>2024/08/07 08:32:15.000.532,D:\Projetos\TheMovieDB\Helpers\TheMovieDB.Helpers.TheMovieDB.pas=D:\Projetos\TheMovieDB\Helpers\TheMovieDB.Helpers.Principal.pas</Transaction>
+    <Transaction>2024/08/07 08:41:19.000.656,D:\Projetos\TheMovieDB\Forms\TheMovieDB.Forms.Autenticacao.pas=</Transaction>
+    <Transaction>2024/08/07 08:41:19.000.794,D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.Configuracao.pas=</Transaction>
+    <Transaction>2024/08/07 08:41:19.000.708,D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.TheMovieDBApi.pas=</Transaction>
+    <Transaction>2024/08/07 08:41:19.000.627,D:\Projetos\TheMovieDB\Forms\TheMovieDB.Forms.Principal.pas=</Transaction>
+    <Transaction>2024/08/07 08:41:19.000.554,D:\Projetos\TheMovieDB\Helpers\TheMovieDB.Helpers.TheMovieDB.pas=</Transaction>
+    <Transaction>2024/08/07 08:41:19.000.775,D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.Exceptions.pas=</Transaction>
+    <Transaction>2024/08/07 08:41:19.000.824,D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.Banco.pas=</Transaction>
+    <Transaction>2024/08/07 08:41:19.000.755,D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.JSONSessaoConvidado.pas=</Transaction>
+    <Transaction>2024/08/07 08:41:28.000.433,=D:\Projetos\TheMovieDB\Forms\TheMovieDB.Forms.Autenticacao.pas</Transaction>
+    <Transaction>2024/08/07 08:41:37.000.329,=D:\Projetos\TheMovieDB\Forms\TheMovieDB.Forms.Principal.pas</Transaction>
+    <Transaction>2024/08/07 08:41:56.000.981,=D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.Configuracao.pas</Transaction>
+    <Transaction>2024/08/07 08:41:56.000.953,=D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.Banco.pas</Transaction>
+    <Transaction>2024/08/07 08:41:57.000.092,=D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.TheMovieDBApi.pas</Transaction>
+    <Transaction>2024/08/07 08:41:57.000.065,=D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.JSONSessaoConvidado.pas</Transaction>
+    <Transaction>2024/08/07 08:41:57.000.013,=D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.Exceptions.pas</Transaction>
+    <Transaction>2024/08/07 08:42:03.000.814,=D:\Projetos\TheMovieDB\Helpers\TheMovieDB.Helpers.TheMovieDB.pas</Transaction>
+    <Transaction>2024/08/07 08:48:52.000.630,=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/07 08:49:37.000.706,D:\Projetos\TheMovieDB\Helpers\TheMovieDB.Helpers.Query.pas=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/07 08:52:15.000.530,D:\Projetos\TheMovieDB\Helpers\TheMovieDB.Helpers.Database.pas=D:\Projetos\TheMovieDB\Helpers\TheMovieDB.Helpers.Query.pas</Transaction>
+    <Transaction>2024/08/07 10:13:35.000.168,=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/07 10:15:00.000.294,D:\Projetos\TheMovieDB\Unit1.pas=D:\Projetos\TheMovieDB\Helpers\TheMovieDB.Helpers.StringHelpers.pas</Transaction>
+    <Transaction>2024/08/07 10:45:04.000.558,D:\Projetos\TheMovieDB\Helpers\TheMovieDB.Helpers.StringHelpers.pas=D:\Projetos\TheMovieDB\Helpers\TheMovieDB.Helpers.Componentes.pas</Transaction>
+    <Transaction>2024/08/07 14:04:39.000.728,=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/07 14:06:13.000.436,D:\Projetos\TheMovieDB\Helpers\TheMovieDB.Helpers.TiposAuxiliares.pas=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/07 14:22:19.000.354,D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.JSONSessaoConvidado.pas=D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.JSON.SessaoConvidado.pas</Transaction>
+    <Transaction>2024/08/07 14:22:33.000.090,D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.JSON.SessaoConvidado.pas=</Transaction>
+    <Transaction>2024/08/07 14:22:48.000.881,=D:\Projetos\TheMovieDB\Classes\JSON\TheMovieDB.Classes.JSON.SessaoConvidado.pas</Transaction>
+    <Transaction>2024/08/07 17:07:09.000.039,=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/07 17:08:00.000.490,D:\Projetos\TheMovieDB\Classes\JSON\TheMovieDB.Classes.JSON.FilmesPopulares.pas=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/08 14:10:28.769,=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/08 14:10:47.564,D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.ApiConsultas.pas=D:\Projetos\TheMovieDB\Unit1.pas</Transaction>
+    <Transaction>2024/08/08 14:11:42.458,D:\Projetos\TheMovieDB\Classes\TheMovieDB.Classes.ApiConsultas.pas=</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Classes"/>
+    <File Path="Classes\JSON"/>
+    <File Path="Classes\JSON\TheMovieDB.Classes.JSON.SessaoConvidado.pas"/>
+    <File Path="Classes\JSON\TheMovieDB.Classes.JSON.FilmesPopulares.pas"/>
+    <File Path="Classes\TheMovieDB.Classes.Banco.pas"/>
+    <File Path="Classes\TheMovieDB.Classes.Configuracao.pas"/>
+    <File Path="Classes\TheMovieDB.Classes.Exceptions.pas"/>
+    <File Path="Classes\TheMovieDB.Classes.TheMovieDBApi.pas"/>
+    <File Path="Forms"/>
+    <File Path="Forms\TheMovieDB.Forms.Autenticacao.pas"/>
+    <File Path="Forms\TheMovieDB.Forms.Autenticacao.dfm"/>
+    <File Path="Forms\TheMovieDB.Forms.Principal.pas"/>
+    <File Path="Forms\TheMovieDB.Forms.Principal.dfm"/>
+    <File Path="Helpers"/>
+    <File Path="Helpers\TheMovieDB.Helpers.Componentes.pas"/>
+    <File Path="Helpers\TheMovieDB.Helpers.Database.pas"/>
+    <File Path="Helpers\TheMovieDB.Helpers.TheMovieDB.pas"/>
+    <File Path="Helpers\TheMovieDB.Helpers.TiposAuxiliares.pas"/>
+  </ProjectSortOrder>
+</BorlandProject>

@@ -1,0 +1,23 @@
+unit TheMovieDB.Helpers.Componentes;
+
+interface
+
+uses
+  Vcl.Controls;
+
+type
+  TComponenteHelper = class Helper for TWinControl
+  public
+    procedure Focar;
+  end;
+
+implementation
+
+{ TComponenteHelper }
+
+procedure TComponenteHelper.Focar;
+begin
+
+end;
+
+end.
