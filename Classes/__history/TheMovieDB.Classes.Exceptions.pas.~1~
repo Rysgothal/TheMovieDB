@@ -1,7 +1,0 @@
-unit TheMovieDB.Classes.Exceptions;
-
-interface
-
-implementation
-
-end.
