@@ -15,9 +15,76 @@ object frmPrincipal: TfrmPrincipal
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 15
+  object shpContaBase: TShape
+    Left = 8
+    Top = 8
+    Width = 73
+    Height = 73
+    Brush.Color = 4532238
+    Shape = stCircle
+  end
+  object shpContaDados: TShape
+    Left = 40
+    Top = 8
+    Width = 219
+    Height = 74
+    Brush.Color = 4532238
+    Pen.Style = psClear
+    Shape = stRoundRect
+  end
+  object shpImagemConta: TShape
+    Left = 12
+    Top = 12
+    Width = 65
+    Height = 64
+    Brush.Color = 14988289
+    Shape = stCircle
+  end
+  object shpDetalhe: TShape
+    Left = 72
+    Top = 59
+    Width = 179
+    Height = 17
+    Brush.Style = bsBDiagonal
+    Pen.Mode = pmMerge
+    Shape = stRoundRect
+  end
+  object lblBemVindo: TLabel
+    Left = 83
+    Top = 12
+    Width = 65
+    Height = 15
+    Caption = 'Bem-vindo, '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+  end
+  object lblNome: TLabel
+    Left = 83
+    Top = 33
+    Width = 30
+    Height = 15
+    Caption = 'Guest'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+  end
+  object shpFilmesPopulares: TShape
+    Left = 4
+    Top = 99
+    Width = 960
+    Height = 196
+    Brush.Color = 4138253
+  end
   object sbxPopulares: TScrollBox
     Left = 8
-    Top = 53
+    Top = 103
     Width = 953
     Height = 188
     DoubleBuffered = True
@@ -45,6 +112,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitWidth = 135
         ExplicitHeight = 130
       end
+      object ActivityIndicator20: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
+      end
     end
     object Panel19: TPanel
       Left = 2106
@@ -67,6 +141,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitTop = 2
         ExplicitWidth = 135
         ExplicitHeight = 130
+      end
+      object ActivityIndicator19: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
       end
     end
     object Panel18: TPanel
@@ -91,6 +172,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitWidth = 135
         ExplicitHeight = 130
       end
+      object ActivityIndicator18: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
+      end
     end
     object Panel17: TPanel
       Left = 1872
@@ -113,6 +201,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitTop = 2
         ExplicitWidth = 135
         ExplicitHeight = 130
+      end
+      object ActivityIndicator17: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
       end
     end
     object Panel16: TPanel
@@ -137,6 +232,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitWidth = 135
         ExplicitHeight = 130
       end
+      object ActivityIndicator16: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
+      end
     end
     object Panel15: TPanel
       Left = 1638
@@ -159,6 +261,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitTop = 2
         ExplicitWidth = 135
         ExplicitHeight = 130
+      end
+      object ActivityIndicator15: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
       end
     end
     object Panel14: TPanel
@@ -183,6 +292,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitWidth = 135
         ExplicitHeight = 130
       end
+      object ActivityIndicator14: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
+      end
     end
     object Panel13: TPanel
       Left = 1404
@@ -205,6 +321,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitTop = 2
         ExplicitWidth = 135
         ExplicitHeight = 130
+      end
+      object ActivityIndicator13: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
       end
     end
     object Panel12: TPanel
@@ -229,6 +352,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitWidth = 135
         ExplicitHeight = 130
       end
+      object ActivityIndicator12: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
+      end
     end
     object Panel11: TPanel
       Left = 1170
@@ -251,6 +381,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitTop = 2
         ExplicitWidth = 135
         ExplicitHeight = 130
+      end
+      object ActivityIndicator11: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
       end
     end
     object Panel10: TPanel
@@ -275,6 +412,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitWidth = 135
         ExplicitHeight = 130
       end
+      object ActivityIndicator10: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
+      end
     end
     object Panel9: TPanel
       Left = 936
@@ -297,6 +441,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitTop = 2
         ExplicitWidth = 135
         ExplicitHeight = 130
+      end
+      object ActivityIndicator9: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
       end
     end
     object Panel8: TPanel
@@ -321,6 +472,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitWidth = 135
         ExplicitHeight = 130
       end
+      object ActivityIndicator8: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
+      end
     end
     object Panel7: TPanel
       Left = 702
@@ -343,6 +501,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitTop = 2
         ExplicitWidth = 135
         ExplicitHeight = 130
+      end
+      object ActivityIndicator7: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
       end
     end
     object Panel6: TPanel
@@ -367,6 +532,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitWidth = 135
         ExplicitHeight = 130
       end
+      object ActivityIndicator6: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
+      end
     end
     object Panel5: TPanel
       Left = 468
@@ -389,6 +561,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitTop = 2
         ExplicitWidth = 135
         ExplicitHeight = 130
+      end
+      object ActivityIndicator5: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
       end
     end
     object Panel4: TPanel
@@ -413,6 +592,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitWidth = 135
         ExplicitHeight = 130
       end
+      object ActivityIndicator4: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
+      end
     end
     object Panel3: TPanel
       Left = 234
@@ -435,6 +621,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitTop = 2
         ExplicitWidth = 135
         ExplicitHeight = 130
+      end
+      object ActivityIndicator3: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
       end
     end
     object Panel2: TPanel
@@ -459,6 +652,13 @@ object frmPrincipal: TfrmPrincipal
         ExplicitWidth = 135
         ExplicitHeight = 130
       end
+      object ActivityIndicator2: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
+      end
     end
     object Panel1: TPanel
       Left = 0
@@ -482,28 +682,22 @@ object frmPrincipal: TfrmPrincipal
         ExplicitWidth = 135
         ExplicitHeight = 130
       end
+      object ActivityIndicator1: TActivityIndicator
+        Left = 43
+        Top = 68
+        Animate = True
+        FrameDelay = 31
+        IndicatorType = aitSectorRing
+      end
     end
   end
   object btnMaisPopulares: TButton
     Left = 884
-    Top = 247
+    Top = 297
     Width = 75
     Height = 25
     Caption = 'Mais...'
     TabOrder = 1
-  end
-  object pnlCarregandoFilmesPopulares: TPanel
-    Left = 8
-    Top = 53
-    Width = 956
-    Height = 187
-    TabOrder = 2
-    object LoadingFilmesPopular: TActivityIndicator
-      Left = 459
-      Top = 77
-      Animate = True
-      FrameDelay = 31
-    end
   end
   object ImageCollection1: TImageCollection
     Images = <>

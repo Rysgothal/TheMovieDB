@@ -3,7 +3,7 @@ unit TheMovieDB.Classes.Thread;
 interface
 
 uses
-  System.Classes;
+  System.Classes, Vcl.Forms;
 
 type
   TThreadCarregarPoster = class(TThread)
@@ -18,7 +18,7 @@ type
 implementation
 
 uses
-  System.Net.HttpClient, TheMovieDB.Forms.Principal, System.SysUtils, Vcl.VirtualImage,
+  System.Net.HttpClient, TheMovieDB.Forms.Principal, System.SysUtils, Vcl.WinXCtrls, Vcl.VirtualImage,
   TheMovieDB.Classes.TheMovieDBApi, TheMovieDB.Classes.JSON.FilmesPopulares;
 
 { TThreadCarregarPoster }
@@ -33,6 +33,7 @@ procedure TThreadCarregarPoster.Execute;
 var
   lApi: TTheMovieDBApi;
   lFilmesPopulares: TTMDBFilmesPopulares;
+  lLoading: TActivityIndicator;
 begin
   lApi := TTheMovieDBApi.ObterInstancia;
   lFilmesPopulares := lApi.ConsultarFilmesPopulares;
@@ -42,10 +43,10 @@ begin
     begin
       CarregarPosterFilme(lFilmesPopulares.Resultado[I].CaminhoPoster);
       TVirtualImage(frmPrincipal.FindComponent('VirtualImage' + Succ(I).ToString)).ImageIndex := I;
+      lLoading := TActivityIndicator(frmPrincipal.FindComponent('ActivityIndicator' + Succ(I).ToString));
+      lLoading.Animate := False;
+      lLoading.Visible := False;
     end;
-
-    frmPrincipal.LoadingFilmesPopular.Animate := False;
-    frmPrincipal.pnlCarregandoFilmesPopulares.Visible := False;
   finally
     FreeAndNil(lFilmesPopulares);
   end;

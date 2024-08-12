@@ -16,7 +16,9 @@ uses
   TheMovieDB.Helpers.TiposAuxiliares in 'Helpers\TheMovieDB.Helpers.TiposAuxiliares.pas',
   TheMovieDB.Classes.JSON.SessaoConvidado in 'Classes\JSON\TheMovieDB.Classes.JSON.SessaoConvidado.pas',
   TheMovieDB.Classes.JSON.FilmesPopulares in 'Classes\JSON\TheMovieDB.Classes.JSON.FilmesPopulares.pas',
-  TheMovieDB.Classes.Thread in 'Classes\TheMovieDB.Classes.Thread.pas';
+  TheMovieDB.Classes.Thread in 'Classes\TheMovieDB.Classes.Thread.pas',
+  TheMovieDB.Helpers.StringHelper in 'Helpers\TheMovieDB.Helpers.StringHelper.pas',
+  TheMovieDB.Classes.Usuario in 'Classes\TheMovieDB.Classes.Usuario.pas';
 
 {$R *.res}
 

@@ -10,55 +10,82 @@ uses
 type
   TfrmPrincipal = class(TForm)
     sbxPopulares: TScrollBox;
-    ImageCollection1: TImageCollection;
-    Panel20: TPanel;
-    VirtualImage20: TVirtualImage;
-    Panel19: TPanel;
-    VirtualImage19: TVirtualImage;
-    Panel18: TPanel;
-    VirtualImage18: TVirtualImage;
-    Panel17: TPanel;
-    VirtualImage17: TVirtualImage;
-    Panel16: TPanel;
-    VirtualImage16: TVirtualImage;
-    Panel15: TPanel;
-    VirtualImage15: TVirtualImage;
-    Panel14: TPanel;
-    VirtualImage14: TVirtualImage;
-    Panel13: TPanel;
-    VirtualImage13: TVirtualImage;
-    Panel12: TPanel;
-    VirtualImage12: TVirtualImage;
-    Panel11: TPanel;
-    VirtualImage11: TVirtualImage;
-    Panel10: TPanel;
-    VirtualImage10: TVirtualImage;
-    Panel9: TPanel;
-    VirtualImage9: TVirtualImage;
-    Panel8: TPanel;
-    VirtualImage8: TVirtualImage;
-    Panel7: TPanel;
-    VirtualImage7: TVirtualImage;
-    Panel6: TPanel;
-    VirtualImage6: TVirtualImage;
-    Panel5: TPanel;
-    VirtualImage5: TVirtualImage;
-    Panel4: TPanel;
-    VirtualImage4: TVirtualImage;
-    Panel3: TPanel;
-    VirtualImage3: TVirtualImage;
-    Panel2: TPanel;
-    VirtualImage2: TVirtualImage;
-    Panel1: TPanel;
-    VirtualImage1: TVirtualImage;
     btnMaisPopulares: TButton;
-    pnlCarregandoFilmesPopulares: TPanel;
-    LoadingFilmesPopular: TActivityIndicator;
+    ImageCollection1: TImageCollection;
+    VirtualImage19: TVirtualImage;
+    VirtualImage20: TVirtualImage;
+    VirtualImage18: TVirtualImage;
+    VirtualImage17: TVirtualImage;
+    VirtualImage16: TVirtualImage;
+    VirtualImage15: TVirtualImage;
+    VirtualImage14: TVirtualImage;
+    VirtualImage13: TVirtualImage;
+    VirtualImage12: TVirtualImage;
+    VirtualImage11: TVirtualImage;
+    VirtualImage10: TVirtualImage;
+    VirtualImage9: TVirtualImage;
+    VirtualImage8: TVirtualImage;
+    VirtualImage7: TVirtualImage;
+    VirtualImage6: TVirtualImage;
+    VirtualImage5: TVirtualImage;
+    VirtualImage4: TVirtualImage;
+    VirtualImage3: TVirtualImage;
+    VirtualImage2: TVirtualImage;
+    VirtualImage1: TVirtualImage;
+    Panel20: TPanel;
+    Panel19: TPanel;
+    Panel18: TPanel;
+    Panel17: TPanel;
+    Panel16: TPanel;
+    Panel15: TPanel;
+    Panel14: TPanel;
+    Panel13: TPanel;
+    Panel12: TPanel;
+    Panel11: TPanel;
+    Panel10: TPanel;
+    Panel9: TPanel;
+    Panel8: TPanel;
+    Panel7: TPanel;
+    Panel6: TPanel;
+    Panel5: TPanel;
+    Panel4: TPanel;
+    Panel3: TPanel;
+    Panel2: TPanel;
+    Panel1: TPanel;
+    ActivityIndicator1: TActivityIndicator;
+    ActivityIndicator2: TActivityIndicator;
+    ActivityIndicator3: TActivityIndicator;
+    ActivityIndicator4: TActivityIndicator;
+    ActivityIndicator5: TActivityIndicator;
+    ActivityIndicator6: TActivityIndicator;
+    ActivityIndicator7: TActivityIndicator;
+    ActivityIndicator8: TActivityIndicator;
+    ActivityIndicator9: TActivityIndicator;
+    ActivityIndicator10: TActivityIndicator;
+    ActivityIndicator11: TActivityIndicator;
+    ActivityIndicator12: TActivityIndicator;
+    ActivityIndicator13: TActivityIndicator;
+    ActivityIndicator14: TActivityIndicator;
+    ActivityIndicator15: TActivityIndicator;
+    ActivityIndicator16: TActivityIndicator;
+    ActivityIndicator17: TActivityIndicator;
+    ActivityIndicator18: TActivityIndicator;
+    ActivityIndicator19: TActivityIndicator;
+    ActivityIndicator20: TActivityIndicator;
+    shpContaBase: TShape;
+    shpContaDados: TShape;
+    shpImagemConta: TShape;
+    shpDetalhe: TShape;
+    lblBemVindo: TLabel;
+    lblNome: TLabel;
+    shpFilmesPopulares: TShape;
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     procedure CarregarFilmesPopulares;
-
+    procedure CarregarMiniPerfil;
+    procedure CarregarMiniPerfilConvidado;
+    procedure CarregarMiniPerfilConta;
   public
     { Public declarations }
   end;
@@ -70,7 +97,8 @@ implementation
 
 uses
   System.Net.HttpClient, TheMovieDB.Classes.TheMovieDBApi,
-  TheMovieDB.Classes.JSON.FilmesPopulares, TheMovieDB.Classes.Thread;
+  TheMovieDB.Classes.JSON.FilmesPopulares, TheMovieDB.Classes.Thread,
+  TheMovieDB.Helpers.TiposAuxiliares;
 
 
 {$R *.dfm}
@@ -83,8 +111,41 @@ begin
   lThread.Start;
 end;
 
+procedure TfrmPrincipal.CarregarMiniPerfil;
+var
+  lApi: TTheMovieDBApi;
+begin
+  lApi := TTheMovieDBApi.ObterInstancia;
+
+  if lApi.TipoSessao = tsNenhum then
+  begin
+    Application.MessageBox('A sua sessão não foi reconhecida, entre novamente.', 'Atenção');
+    Application.Terminate;
+  end;
+
+  case lAPi.TipoSessao of
+    tsConvidado: CarregarMiniPerfilConvidado;
+    tsConta: CarregarMiniPerfilConta;
+  end;
+end;
+
+procedure TfrmPrincipal.CarregarMiniPerfilConta;
+begin
+
+end;
+
+procedure TfrmPrincipal.CarregarMiniPerfilConvidado;
+var
+  lApi: TTheMovieDBApi;
+begin
+  lAPi := TTheMovieDBApi.ObterInstancia;
+
+  lblNome.Caption := lApi.Usuario.Nome;
+end;
+
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
+  CarregarMiniPerfil;
   CarregarFilmesPopulares;
 end;
 

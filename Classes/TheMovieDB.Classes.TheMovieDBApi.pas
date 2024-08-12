@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, REST.Client, TheMovieDB.Helpers.TiposAuxiliares,
-  TheMovieDB.Classes.JSON.FilmesPopulares;
+  TheMovieDB.Classes.JSON.FilmesPopulares, TheMovieDB.Classes.Usuario;
 
 type
   TTheMovieDBApi = class
@@ -12,7 +12,7 @@ type
     FClient: TRESTClient;
     FRequest: TRESTRequest;
     FChaveValida: Boolean;
-    FIDSessao: string;
+    FUsuario: TUsuario;
     FTipoSessao: TTipoSessao;
     constructor Create;
     class var FTheMovieDBApi: TTheMovieDBApi;
@@ -27,10 +27,11 @@ type
   public
     destructor Destroy; override;
     property ChaveValida: Boolean read FChaveValida;
-    property IDSessao: string read FIDSessao write FIDSessao;
+    property Usuario: TUsuario read FUsuario write FUsuario;
     property TipoSessao: TTipoSessao read FTipoSessao write FTipoSessao;
     class function ObterInstancia: TTheMovieDBApi;
     procedure CriarSessaoConvidado;
+    procedure CriarSessaoConta(const pLogin, pSenha: string);
     function ConsultarFilmesPopulares(const pLinguagem: string = 'en-US'; const pPagina: Integer = 1): TTMDBFilmesPopulares;
   end;
 
@@ -38,7 +39,8 @@ implementation
 
 uses
   REST.Types, Vcl.Dialogs, TheMovieDB.Classes.JSON.SessaoConvidado, REST.JSON, System.JSON,
-  TheMovieDB.Classes.Exceptions, TheMovieDB.Helpers.TheMovieDB;
+  TheMovieDB.Classes.Exceptions, TheMovieDB.Helpers.TheMovieDB,
+  TheMovieDB.Classes.Banco;
 
 { TTheMovieDBApi }
 
@@ -67,7 +69,7 @@ begin
   FClient := TRESTClient.Create(THE_MOVIE_DB_API_URL + '/authentication');
   FRequest := TRESTRequest.Create(FClient);
 
-  FIDSessao := EmptyStr;
+  FUsuario := nil;
   FTipoSessao := tsNenhum;
   FTheMovieDBApi := nil;
 
@@ -80,18 +82,28 @@ begin
   end;
 end;
 
+procedure TTheMovieDBApi.CriarSessaoConta(const pLogin, pSenha: string);
+begin
+
+end;
+
 procedure TTheMovieDBApi.CriarSessaoConvidado;
 var
   lSessaoConvidado: TTMDBSessaoConvidado;
+  lCodigoConta: Integer;
+  lDados: TDados;
   lJSON: TJSONValue;
 begin
-  FClient.BaseURL := THE_MOVIE_DB_API_URL + '/authentication/guest_session/new';
-  Consultar;
-  lJSON := FRequest.Response.JSONValue;
+  lDados := TDados.ObterInstancia;
 
   try
+    FClient.BaseURL := THE_MOVIE_DB_API_URL + '/authentication/guest_session/new';
+    Consultar;
+    lJSON := FRequest.Response.JSONValue;
+
     lSessaoConvidado := TJson.JsonToObject<TTMDBSessaoConvidado>(TJSONObject(lJSON));
-    IDSessao := lSessaoConvidado.SessaoID;
+    lCodigoConta := lDados.CriarContaConvidado(lSessaoConvidado);
+    FUsuario := TUsuario.ObterInstancia(lCodigoConta);
     TipoSessao := tsConvidado;
   finally
     FreeAndNil(lSessaoConvidado);

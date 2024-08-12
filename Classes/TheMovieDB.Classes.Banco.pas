@@ -3,7 +3,9 @@ unit TheMovieDB.Classes.Banco;
 interface
 
 uses
-  IBX.IBDatabase, TheMovieDB.Classes.Configuracao, System.IniFiles;
+  IBX.IBDatabase, TheMovieDB.Classes.Configuracao, System.IniFiles,
+  TheMovieDB.Helpers.TiposAuxiliares, TheMovieDB.Classes.JSON.SessaoConvidado,
+  IBX.IBQuery;
 
 type
   TDados = class
@@ -18,16 +20,19 @@ type
     function VerificarExisteConta(const pNome: string): Boolean;
   public
     destructor Destroy; override;
+    class function ObterInstancia: TDados;
     procedure FazerLogin(const pNome, pSenha: string);
     procedure TestarConexao;
-    class function ObterInstancia: TDados;
+    function CriarContaConvidado(const pSessaoConvidado: TTMDBSessaoConvidado): Integer;
+    function CriarQuery: TIBQuery;
   end;
 
 implementation
 
 uses
-  System.SysUtils, IBX.IBQuery, Vcl.Forms, TheMovieDB.Helpers.DataBase, Data.DB, System.Hash,
-  TheMovieDB.Classes.Exceptions, IBX.IB, System.IOUtils;
+  System.SysUtils, Vcl.Forms, TheMovieDB.Helpers.DataBase, Data.DB, System.Hash,
+  TheMovieDB.Classes.Exceptions, IBX.IB, System.IOUtils,
+  TheMovieDB.Helpers.StringHelper, System.Variants, System.Classes;
 
 { TDados }
 
@@ -66,6 +71,36 @@ begin
   ConfigurarBanco;
 end;
 
+function TDados.CriarContaConvidado(const pSessaoConvidado: TTMDBSessaoConvidado): Integer;
+var
+  lQuery: TIBQuery;
+begin
+  lQuery := CriarQuery;
+
+  try
+    lQuery.SQL.Add(' insert into conta ( ');
+    lQuery.SQL.Add(' NOME, SESSAO, DH_EXPIRACAO');
+    lQuery.SQL.Add(' ) values ( ');
+    lQuery.SQL.Add(' :pNome, :pSessao, :pDataHoraExpiracao');
+    lQuery.SQL.Add(') returning conta.codigo');
+
+    lQuery.ParamByName('pNome').Value := TStringHelper.GerarStringAleatoria;
+    lQuery.ParamByName('pSessao').Value := pSessaoConvidado.SessaoID;
+    lQuery.ParamByName('pDataHoraExpiracao').Value := VarToDateTime(pSessaoConvidado.DataExpiracao.Replace('UTC', EmptyStr));
+    lQuery.Open;
+
+    Result := lQuery.FieldByName('RET_RowID').AsInteger;
+
+  finally
+    FreeAndNil(lQuery);
+  end;
+end;
+
+function TDados.CriarQuery: TIBQuery;
+begin
+  Result := TIBQuery.Criar(FDataBase);
+end;
+
 destructor TDados.Destroy;
 begin
   FreeAndNil(FDataBase);
@@ -77,7 +112,7 @@ var
   lQuery: TIBQuery;
 begin
   try
-    lQuery := TIBQuery.Criar(FDataBase);
+    lQuery := CriarQuery;
     lQuery.SQL.Add(' select c.senha from conta c');
     lQuery.SQL.Add(' where c.login = :pLogin');
     lQuery.ParamByName('pLogin').Value := pNome;
@@ -125,7 +160,7 @@ var
   lQuery: TIBQuery;
 begin
   try
-    lQuery := TIBQuery.Criar(FDataBase);
+    lQuery := CriarQuery;
     lQuery.SQL.Add(' select c.login from conta c');
     lQuery.SQL.Add(' where c.login = :pLogin');
     lQuery.ParamByName('pLogin').Value := pNome;
