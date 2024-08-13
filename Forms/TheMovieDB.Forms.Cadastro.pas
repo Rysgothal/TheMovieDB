@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.ExtCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.ExtCtrls, Vcl.VirtualImage;
 
 type
   TForm1 = class(TForm)
@@ -14,6 +14,7 @@ type
     btnSair: TButton;
     btnLogin: TButton;
     lblNome: TLabeledEdit;
+    VirtualImage1: TVirtualImage;
   private
     { Private declarations }
   public

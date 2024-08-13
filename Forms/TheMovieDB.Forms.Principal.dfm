@@ -1,6 +1,7 @@
 object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
+  HorzScrollBar.Tracking = True
   BorderStyle = bsDialog
   Caption = 'TMDB - The Movie Database'
   ClientHeight = 660
@@ -110,6 +111,7 @@ object frmPrincipal: TfrmPrincipal
     Top = 22
     Width = 45
     Height = 45
+    Cursor = crHandPoint
     Caption = '+'
     Flat = True
     Font.Charset = DEFAULT_CHARSET
@@ -125,6 +127,13 @@ object frmPrincipal: TfrmPrincipal
     Top = 104
     Width = 953
     Height = 188
+    HorzScrollBar.Color = clMenuText
+    HorzScrollBar.ParentColor = False
+    HorzScrollBar.Smooth = True
+    HorzScrollBar.Tracking = True
+    BevelInner = bvNone
+    BevelOuter = bvNone
+    BorderStyle = bsNone
     DoubleBuffered = True
     Color = 4138253
     ParentColor = False
@@ -134,14 +143,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 2223
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 0
       object VirtualImage20: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -164,14 +173,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 2106
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 1
       object VirtualImage19: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -194,14 +203,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 1989
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 2
       object VirtualImage18: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -224,14 +233,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 1872
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 3
       object VirtualImage17: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -254,14 +263,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 1755
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 4
       object VirtualImage16: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -284,14 +293,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 1638
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 5
       object VirtualImage15: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -314,14 +323,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 1521
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 6
       object VirtualImage14: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -344,14 +353,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 1404
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 7
       object VirtualImage13: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -374,14 +383,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 1287
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 8
       object VirtualImage12: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -404,14 +413,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 1170
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 9
       object VirtualImage11: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -434,14 +443,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 1053
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 10
       object VirtualImage10: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -464,14 +473,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 936
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 11
       object VirtualImage9: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -494,14 +503,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 819
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 12
       object VirtualImage8: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -524,14 +533,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 702
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 13
       object VirtualImage7: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -554,14 +563,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 585
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 14
       object VirtualImage6: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -584,14 +593,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 468
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 15
       object VirtualImage5: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -614,14 +623,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 351
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 16
       object VirtualImage4: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -644,14 +653,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 234
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 17
       object VirtualImage3: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -674,14 +683,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 117
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 18
       object VirtualImage2: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
@@ -704,14 +713,14 @@ object frmPrincipal: TfrmPrincipal
       Left = 0
       Top = 0
       Width = 117
-      Height = 167
+      Height = 171
       Align = alLeft
       TabOrder = 19
       object VirtualImage1: TVirtualImage
         Left = 1
         Top = 1
         Width = 115
-        Height = 165
+        Height = 169
         Align = alClient
         ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0

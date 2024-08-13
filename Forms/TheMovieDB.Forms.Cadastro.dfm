@@ -14,6 +14,20 @@ object Form1: TForm1
   Font.Style = []
   PixelsPerInch = 96
   TextHeight = 15
+  object VirtualImage1: TVirtualImage
+    Left = 0
+    Top = 0
+    Width = 205
+    Height = 25
+    Align = alTop
+    ImageCollection = dtmPrincipal.imcLogos
+    ImageWidth = 0
+    ImageHeight = 0
+    ImageIndex = 2
+    ImageName = 'Alt_Short'
+    ExplicitLeft = 6
+    ExplicitWidth = 193
+  end
   object gbxNovoUsuario: TGroupBox
     Left = 4
     Top = 62
@@ -102,7 +116,7 @@ object Form1: TForm1
   end
   object lblNome: TLabeledEdit
     Left = 8
-    Top = 35
+    Top = 47
     Width = 137
     Height = 21
     CharCase = ecUpperCase

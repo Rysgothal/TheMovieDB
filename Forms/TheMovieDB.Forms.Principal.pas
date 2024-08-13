@@ -155,6 +155,7 @@ end;
 
 procedure TfrmPrincipal.CriarConta;
 begin
+  if not Assigned(frm) then
 
 end;
 
