@@ -13,6 +13,7 @@ type
     FDataBase: TIBDataBase;
 
     const HASH_SALTING = '#01010q«L5]:01108£¡rj3Nx¿i01W√a$,5&’25Z|&OuSLCMx|K';
+    function PegarCodigoNovaConta: Integer;
     constructor Create;
     class var FDados: TDados;
     procedure ConfigurarBanco;
@@ -74,23 +75,30 @@ end;
 function TDados.CriarContaConvidado(const pSessaoConvidado: TTMDBSessaoConvidado): Integer;
 var
   lQuery: TIBQuery;
+  lCodigo: Integer;
+  lDataExpiracao: TDateTime;
 begin
   lQuery := CriarQuery;
 
   try
+    lCodigo := PegarCodigoNovaConta;
+
     lQuery.SQL.Add(' insert into conta ( ');
-    lQuery.SQL.Add(' NOME, SESSAO, DH_EXPIRACAO');
+    lQuery.SQL.Add(' CODIGO, NOME, SESSAO, DH_EXPIRACAO');
     lQuery.SQL.Add(' ) values ( ');
-    lQuery.SQL.Add(' :pNome, :pSessao, :pDataHoraExpiracao');
-    lQuery.SQL.Add(') returning conta.codigo');
+    lQuery.SQL.Add(' :pCodigo, :pNome, :pSessao, :pDataHoraExpiracao');
+    lQuery.SQL.Add(') ');
 
-    lQuery.ParamByName('pNome').Value := TStringHelper.GerarStringAleatoria;
+    lDataExpiracao := VarToDateTime(pSessaoConvidado.DataExpiracao.Replace('UTC', EmptyStr)) - StrToTime('04:00');
+
+    lQuery.ParamByName('pCodigo').Value := lCodigo;
+    lQuery.ParamByName('pNome').Value := 'Convidado.' + TStringHelper.GerarStringAleatoria;
     lQuery.ParamByName('pSessao').Value := pSessaoConvidado.SessaoID;
-    lQuery.ParamByName('pDataHoraExpiracao').Value := VarToDateTime(pSessaoConvidado.DataExpiracao.Replace('UTC', EmptyStr));
-    lQuery.Open;
+    lQuery.ParamByName('pDataHoraExpiracao').Value := lDataExpiracao;
+    lQuery.ExecSQL;
+    lQuery.Transaction.Commit;
 
-    Result := lQuery.FieldByName('RET_RowID').AsInteger;
-
+    Result := lCodigo;
   finally
     FreeAndNil(lQuery);
   end;
@@ -99,6 +107,19 @@ end;
 function TDados.CriarQuery: TIBQuery;
 begin
   Result := TIBQuery.Criar(FDataBase);
+end;
+
+function TDados.PegarCodigoNovaConta: Integer;
+var
+  lQuery: TIBQuery;
+begin
+  lQuery := CriarQuery;
+
+  lQuery.SQL.Add(' SELECT gen_id(gen_conta_id,1) "CODIGO" from RDB$DATABASE ');
+  lQuery.Open;
+  Result := lQuery.FieldByName('CODIGO').AsInteger;
+  lQuery.Close;
+  lQuery.SQL.Clear;
 end;
 
 destructor TDados.Destroy;

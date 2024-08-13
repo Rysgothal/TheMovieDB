@@ -6,7 +6,7 @@ interface
 type
   TStringHelper = class abstract
   public
-    class function GerarStringAleatoria(pTamanho: Word = 32): string;
+    class function GerarStringAleatoria(pTamanho: Word = 15): string;
   end;
 
 implementation

@@ -8,6 +8,7 @@ type
     FCodigo: Integer;
     FNome: string;
     FSessao: string;
+    FDataExpiracao: TDateTime;
     constructor Create(const pID: Integer);
     class var FUsuario: TUsuario;
   public
@@ -15,6 +16,7 @@ type
     property Codigo: Integer read FCodigo write FCodigo;
     property Nome: string read FNome write FNome;
     property Sessao: string read FSessao write FSessao;
+    property DataExpiracao: TDateTime read FDataExpiracao write FDataExpiracao;
   end;
 
 implementation
@@ -33,12 +35,14 @@ begin
   lQuery := lDados.CriarQuery;
 
   try
-    lQuery.SQL.Add('select C.CODIGO, C.NOME, C.SESSAO from conta c where c.codigo = :pID');
+    lQuery.SQL.Add('select C.CODIGO, C.NOME, C.SESSAO, C.DH_EXPIRACAO from conta c where c.codigo = :pID');
+    lQuery.ParamByName('pID').Value := pID;
     lQuery.Open;
 
     FCodigo := lQuery.FieldByName('codigo').AsInteger;
     FNome := lQuery.FieldByName('nome').AsString;
     FSessao := lQuery.FieldByName('sessao').AsString;
+    FDataExpiracao := lQuery.FieldByName('DH_EXPIRACAO').AsDateTime;
   finally
     FreeAndNil(lQuery);
   end;

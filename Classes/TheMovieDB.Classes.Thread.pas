@@ -3,7 +3,7 @@ unit TheMovieDB.Classes.Thread;
 interface
 
 uses
-  System.Classes, Vcl.Forms;
+  System.Classes, Vcl.Forms, TheMovieDB.DataModule.Principal;
 
 type
   TThreadCarregarPoster = class(TThread)
@@ -65,7 +65,7 @@ begin
 
     TThread.Synchronize(nil, procedure
     begin
-      frmPrincipal.ImageCollection1.Add(pCaminho, lMS);
+      dtmPrincipal.imcPostersPopulares.Add(pCaminho, lMS);
     end);
   finally
     FreeAndNil(lHttpClient);

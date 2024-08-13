@@ -10,7 +10,6 @@ uses
 
 type
   TfrmAutenticacao = class(TForm)
-    ImageCollection1: TImageCollection;
     gbxLogin: TGroupBox;
     btnSair: TButton;
     btnLogin: TButton;

@@ -3,15 +3,14 @@ unit TheMovieDB.Forms.Principal;
 interface
 
 uses
-  Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Messages, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.WinXPanels, Vcl.VirtualImage,
-  Vcl.BaseImageCollection, Vcl.ImageCollection, Vcl.DBCtrls, Vcl.WinXCtrls;
+  Vcl.BaseImageCollection, Vcl.ImageCollection, Vcl.DBCtrls, Vcl.WinXCtrls, Vcl.Buttons;
 
 type
   TfrmPrincipal = class(TForm)
     sbxPopulares: TScrollBox;
     btnMaisPopulares: TButton;
-    ImageCollection1: TImageCollection;
     VirtualImage19: TVirtualImage;
     VirtualImage20: TVirtualImage;
     VirtualImage18: TVirtualImage;
@@ -79,13 +78,20 @@ type
     lblBemVindo: TLabel;
     lblNome: TLabel;
     shpFilmesPopulares: TShape;
+    shpHoras: TShape;
+    lblHorasExpiracao: TLabel;
+    tmrTempoExpiracao: TTimer;
+    btnCriarConta: TSpeedButton;
     procedure FormCreate(Sender: TObject);
+    procedure tmrTempoExpiracaoTimer(Sender: TObject);
+    procedure btnCriarContaClick(Sender: TObject);
   private
     { Private declarations }
     procedure CarregarFilmesPopulares;
     procedure CarregarMiniPerfil;
     procedure CarregarMiniPerfilConvidado;
     procedure CarregarMiniPerfilConta;
+    procedure CriarConta;
   public
     { Public declarations }
   end;
@@ -96,12 +102,17 @@ var
 implementation
 
 uses
-  System.Net.HttpClient, TheMovieDB.Classes.TheMovieDBApi,
+  System.Net.HttpClient, TheMovieDB.Classes.TheMovieDBApi, System.DateUtils,
   TheMovieDB.Classes.JSON.FilmesPopulares, TheMovieDB.Classes.Thread,
-  TheMovieDB.Helpers.TiposAuxiliares;
+  TheMovieDB.Helpers.TiposAuxiliares, System.SysUtils;
 
 
 {$R *.dfm}
+
+procedure TfrmPrincipal.btnCriarContaClick(Sender: TObject);
+begin
+  CriarConta;
+end;
 
 procedure TfrmPrincipal.CarregarFilmesPopulares;
 var
@@ -139,14 +150,27 @@ var
   lApi: TTheMovieDBApi;
 begin
   lAPi := TTheMovieDBApi.ObterInstancia;
-
   lblNome.Caption := lApi.Usuario.Nome;
+end;
+
+procedure TfrmPrincipal.CriarConta;
+begin
+
 end;
 
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
   CarregarMiniPerfil;
+  tmrTempoExpiracao.Enabled := True;
   CarregarFilmesPopulares;
+end;
+
+procedure TfrmPrincipal.tmrTempoExpiracaoTimer(Sender: TObject);
+var
+  lApi: TTheMovieDBApi;
+begin
+  lApi := TTheMovieDBApi.ObterInstancia;
+  lblHorasExpiracao.Caption := FormatDateTime('hh:mm:ss', lApi.Usuario.DataExpiracao - Now);
 end;
 
 end.

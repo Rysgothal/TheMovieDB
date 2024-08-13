@@ -15,43 +15,43 @@ object frmPrincipal: TfrmPrincipal
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 15
+  object shpContaDados: TShape
+    Left = 40
+    Top = 8
+    Width = 257
+    Height = 74
+    Brush.Color = 4532238
+    Pen.Style = psClear
+    Shape = stRoundRect
+  end
+  object shpDetalhe: TShape
+    Left = 51
+    Top = 59
+    Width = 187
+    Height = 17
+    Brush.Style = bsBDiagonal
+    Pen.Mode = pmMerge
+    Shape = stRoundRect
+  end
   object shpContaBase: TShape
-    Left = 8
+    Left = 10
     Top = 8
     Width = 73
     Height = 73
     Brush.Color = 4532238
     Shape = stCircle
   end
-  object shpContaDados: TShape
-    Left = 40
-    Top = 8
-    Width = 219
-    Height = 74
-    Brush.Color = 4532238
-    Pen.Style = psClear
-    Shape = stRoundRect
-  end
   object shpImagemConta: TShape
-    Left = 12
+    Left = 14
     Top = 12
     Width = 65
     Height = 64
     Brush.Color = 14988289
     Shape = stCircle
   end
-  object shpDetalhe: TShape
-    Left = 72
-    Top = 59
-    Width = 179
-    Height = 17
-    Brush.Style = bsBDiagonal
-    Pen.Mode = pmMerge
-    Shape = stRoundRect
-  end
   object lblBemVindo: TLabel
     Left = 83
-    Top = 12
+    Top = 16
     Width = 65
     Height = 15
     Caption = 'Bem-vindo, '
@@ -64,10 +64,40 @@ object frmPrincipal: TfrmPrincipal
   end
   object lblNome: TLabel
     Left = 83
-    Top = 33
-    Width = 30
-    Height = 15
+    Top = 31
+    Width = 208
+    Height = 19
     Caption = 'Guest'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWhite
+    Font.Height = 19
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
+  end
+  object shpFilmesPopulares: TShape
+    Left = 4
+    Top = 100
+    Width = 960
+    Height = 196
+    Brush.Color = 4138253
+  end
+  object shpHoras: TShape
+    Left = 244
+    Top = 58
+    Width = 48
+    Height = 19
+    Brush.Style = bsClear
+    Pen.Color = clWhite
+    Shape = stRoundRect
+  end
+  object lblHorasExpiracao: TLabel
+    Left = 246
+    Top = 60
+    Width = 45
+    Height = 14
+    Alignment = taCenter
+    Caption = '00:00:00'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWhite
     Font.Height = -12
@@ -75,19 +105,29 @@ object frmPrincipal: TfrmPrincipal
     Font.Style = []
     ParentFont = False
   end
-  object shpFilmesPopulares: TShape
-    Left = 4
-    Top = 99
-    Width = 960
-    Height = 196
-    Brush.Color = 4138253
+  object btnCriarConta: TSpeedButton
+    Left = 24
+    Top = 22
+    Width = 45
+    Height = 45
+    Caption = '+'
+    Flat = True
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -35
+    Font.Name = 'Courier New'
+    Font.Style = [fsBold]
+    ParentFont = False
+    OnClick = btnCriarContaClick
   end
   object sbxPopulares: TScrollBox
     Left = 8
-    Top = 103
+    Top = 104
     Width = 953
     Height = 188
     DoubleBuffered = True
+    Color = 4138253
+    ParentColor = False
     ParentDoubleBuffered = False
     TabOrder = 0
     object Panel20: TPanel
@@ -103,7 +143,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -133,7 +173,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -163,7 +203,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -193,7 +233,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -223,7 +263,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -253,7 +293,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -283,7 +323,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -313,7 +353,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -343,7 +383,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -373,7 +413,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -403,7 +443,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -433,7 +473,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -463,7 +503,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -493,7 +533,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -523,7 +563,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -553,7 +593,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -583,7 +623,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -613,7 +653,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -643,7 +683,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -673,7 +713,7 @@ object frmPrincipal: TfrmPrincipal
         Width = 115
         Height = 165
         Align = alClient
-        ImageCollection = ImageCollection1
+        ImageCollection = dtmPrincipal.imcPostersPopulares
         ImageWidth = 0
         ImageHeight = 0
         ImageIndex = -1
@@ -699,9 +739,11 @@ object frmPrincipal: TfrmPrincipal
     Caption = 'Mais...'
     TabOrder = 1
   end
-  object ImageCollection1: TImageCollection
-    Images = <>
-    Left = 864
-    Top = 8
+  object tmrTempoExpiracao: TTimer
+    Enabled = False
+    Interval = 250
+    OnTimer = tmrTempoExpiracaoTimer
+    Left = 344
+    Top = 48
   end
 end
