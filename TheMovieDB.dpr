@@ -19,7 +19,7 @@ uses
   TheMovieDB.Classes.Thread in 'Classes\TheMovieDB.Classes.Thread.pas',
   TheMovieDB.Helpers.StringHelper in 'Helpers\TheMovieDB.Helpers.StringHelper.pas',
   TheMovieDB.Classes.Usuario in 'Classes\TheMovieDB.Classes.Usuario.pas',
-  TheMovieDB.Forms.Cadastro in 'Forms\TheMovieDB.Forms.Cadastro.pas' {Form1},
+  TheMovieDB.Forms.Cadastro in 'Forms\TheMovieDB.Forms.Cadastro.pas' {frmCadastro},
   TheMovieDB.DataModule.Principal in 'DataModules\TheMovieDB.DataModule.Principal.pas' {dtmPrincipal: TDataModule};
 
 {$R *.res}

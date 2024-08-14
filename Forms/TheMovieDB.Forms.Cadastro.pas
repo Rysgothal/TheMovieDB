@@ -7,14 +7,17 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.ExtCtrls, Vcl.VirtualImage;
 
 type
-  TForm1 = class(TForm)
+  TfrmCadastro = class(TForm)
     gbxNovoUsuario: TGroupBox;
     edtNome: TLabeledEdit;
     edtSenha: TLabeledEdit;
     btnSair: TButton;
     btnLogin: TButton;
     lblNome: TLabeledEdit;
-    VirtualImage1: TVirtualImage;
+    pnlLogo: TPanel;
+    vtiLogo: TVirtualImage;
+    shpLinhaEnvolta: TShape;
+    Shape1: TShape;
   private
     { Private declarations }
   public
@@ -22,7 +25,7 @@ type
   end;
 
 var
-  Form1: TForm1;
+  frmCadastro: TfrmCadastro;
 
 implementation
 

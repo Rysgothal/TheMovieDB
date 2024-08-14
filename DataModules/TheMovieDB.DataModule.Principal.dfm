@@ -1,6 +1,6 @@
 object dtmPrincipal: TdtmPrincipal
-  Height = 89
-  Width = 250
+  Height = 95
+  Width = 255
   PixelsPerInch = 96
   object imcLogos: TImageCollection
     Images = <

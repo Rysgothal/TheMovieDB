@@ -9,6 +9,8 @@ type
   ETokenInvalido = class(Exception);
   ESenhaIncorreta = class(Exception);
   ELoginNaoExiste = class(Exception);
+  ELoginVazio = class(Exception);
+  ESenhaVazia = class(Exception);
 
 implementation
 

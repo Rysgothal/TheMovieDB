@@ -57,7 +57,7 @@ object frmAutenticacao: TfrmAutenticacao
       ImageWidth = 0
       ImageHeight = 0
       ImageIndex = 0
-      ImageName = 'blue_square_2'
+      ImageName = 'Primary_Full'
     end
     object Bevel1: TBevel
       Left = 3
@@ -66,31 +66,6 @@ object frmAutenticacao: TfrmAutenticacao
       Height = 68
       Shape = bsFrame
       Style = bsRaised
-    end
-    object edtNome: TLabeledEdit
-      Left = 150
-      Top = 12
-      Width = 137
-      Height = 21
-      CharCase = ecUpperCase
-      EditLabel.Width = 35
-      EditLabel.Height = 13
-      EditLabel.Caption = 'Nome:'
-      EditLabel.Font.Charset = DEFAULT_CHARSET
-      EditLabel.Font.Color = clBlack
-      EditLabel.Font.Height = -11
-      EditLabel.Font.Name = 'Tahoma'
-      EditLabel.Font.Style = [fsBold]
-      EditLabel.ParentFont = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
-      Font.Height = -11
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      LabelPosition = lpLeft
-      ParentFont = False
-      TabOrder = 0
-      Text = 'LUCAO'
     end
     object edtSenha: TLabeledEdit
       Left = 150
@@ -116,6 +91,31 @@ object frmAutenticacao: TfrmAutenticacao
       PasswordChar = '*'
       TabOrder = 1
       Text = '123'
+    end
+    object edtNome: TLabeledEdit
+      Left = 150
+      Top = 12
+      Width = 137
+      Height = 21
+      CharCase = ecUpperCase
+      EditLabel.Width = 35
+      EditLabel.Height = 13
+      EditLabel.Caption = 'Nome:'
+      EditLabel.Font.Charset = DEFAULT_CHARSET
+      EditLabel.Font.Color = clBlack
+      EditLabel.Font.Height = -11
+      EditLabel.Font.Name = 'Tahoma'
+      EditLabel.Font.Style = [fsBold]
+      EditLabel.ParentFont = False
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBlack
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      LabelPosition = lpLeft
+      ParentFont = False
+      TabOrder = 0
+      Text = 'LUCAO'
     end
     object cbxLembrar: TCheckBox
       Left = 223
@@ -181,7 +181,7 @@ object frmAutenticacao: TfrmAutenticacao
       ImageWidth = 0
       ImageHeight = 0
       ImageIndex = 1
-      ImageName = 'blue_long_1'
+      ImageName = 'Alt_Long'
     end
   end
 end

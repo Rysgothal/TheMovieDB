@@ -13,6 +13,7 @@ object frmPrincipal: TfrmPrincipal
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
+  OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 15
@@ -66,7 +67,7 @@ object frmPrincipal: TfrmPrincipal
   object lblNome: TLabel
     Left = 83
     Top = 31
-    Width = 208
+    Width = 36
     Height = 19
     Caption = 'Guest'
     Font.Charset = DEFAULT_CHARSET
@@ -95,8 +96,8 @@ object frmPrincipal: TfrmPrincipal
   object lblHorasExpiracao: TLabel
     Left = 246
     Top = 60
-    Width = 45
-    Height = 14
+    Width = 42
+    Height = 15
     Alignment = taCenter
     Caption = '00:00:00'
     Font.Charset = DEFAULT_CHARSET

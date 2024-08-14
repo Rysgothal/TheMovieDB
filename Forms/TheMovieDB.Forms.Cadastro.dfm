@@ -1,39 +1,83 @@
-object Form1: TForm1
+object frmCadastro: TfrmCadastro
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Cadastre-se'
-  ClientHeight = 172
+  ClientHeight = 200
   ClientWidth = 205
   Color = clBtnFace
+  CustomTitleBar.BackgroundColor = clWhite
+  CustomTitleBar.ForegroundColor = 65793
+  CustomTitleBar.InactiveBackgroundColor = clWhite
+  CustomTitleBar.InactiveForegroundColor = 10066329
+  CustomTitleBar.ButtonForegroundColor = 65793
+  CustomTitleBar.ButtonBackgroundColor = clWhite
+  CustomTitleBar.ButtonHoverForegroundColor = 65793
+  CustomTitleBar.ButtonHoverBackgroundColor = 16053492
+  CustomTitleBar.ButtonPressedForegroundColor = 65793
+  CustomTitleBar.ButtonPressedBackgroundColor = 15395562
+  CustomTitleBar.ButtonInactiveForegroundColor = 10066329
+  CustomTitleBar.ButtonInactiveBackgroundColor = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  Position = poScreenCenter
+  StyleElements = [seFont, seClient]
   PixelsPerInch = 96
   TextHeight = 15
-  object VirtualImage1: TVirtualImage
+  object shpLinhaEnvolta: TShape
     Left = 0
     Top = 0
     Width = 205
-    Height = 25
+    Height = 200
+    Brush.Style = bsClear
+    Pen.Color = 15317505
+    Pen.Style = psInsideFrame
+  end
+  object Shape1: TShape
+    Left = 149
+    Top = 47
+    Width = 48
+    Height = 37
+    Brush.Color = clBtnFace
+    Pen.Color = 10538611
+    Pen.Style = psDashDotDot
+  end
+  object pnlLogo: TPanel
+    Left = 0
+    Top = 0
+    Width = 205
+    Height = 41
     Align = alTop
-    ImageCollection = dtmPrincipal.imcLogos
-    ImageWidth = 0
-    ImageHeight = 0
-    ImageIndex = 2
-    ImageName = 'Alt_Short'
-    ExplicitLeft = 6
-    ExplicitWidth = 193
+    BevelInner = bvRaised
+    Color = 4400910
+    ParentBackground = False
+    TabOrder = 4
+    ExplicitWidth = 220
+    object vtiLogo: TVirtualImage
+      Left = 2
+      Top = 2
+      Width = 201
+      Height = 37
+      Align = alClient
+      ImageCollection = dtmPrincipal.imcLogos
+      ImageWidth = 0
+      ImageHeight = 0
+      ImageIndex = 2
+      ImageName = 'Alt_Short'
+      ExplicitLeft = 4
+      ExplicitTop = -4
+    end
   end
   object gbxNovoUsuario: TGroupBox
-    Left = 4
-    Top = 62
+    Left = 6
+    Top = 90
     Width = 193
     Height = 81
-    Caption = 'Novo Usu'#225'rio '
+    Caption = 'Informa'#231#245'es de Acesso '
     TabOrder = 0
     object edtNome: TLabeledEdit
       Left = 45
@@ -87,8 +131,8 @@ object Form1: TForm1
     end
   end
   object btnSair: TButton
-    Left = 135
-    Top = 144
+    Left = 137
+    Top = 173
     Width = 63
     Height = 25
     Caption = '&Cancelar'
@@ -97,12 +141,13 @@ object Form1: TForm1
     Font.Height = -11
     Font.Name = 'Tahoma'
     Font.Style = []
+    ModalResult = 2
     ParentFont = False
     TabOrder = 1
   end
   object btnLogin: TButton
-    Left = 70
-    Top = 144
+    Left = 72
+    Top = 173
     Width = 63
     Height = 25
     Caption = '&Entrar'
@@ -115,8 +160,8 @@ object Form1: TForm1
     TabOrder = 2
   end
   object lblNome: TLabeledEdit
-    Left = 8
-    Top = 47
+    Left = 6
+    Top = 63
     Width = 137
     Height = 21
     CharCase = ecUpperCase

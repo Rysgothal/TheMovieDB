@@ -31,7 +31,7 @@ type
     property TipoSessao: TTipoSessao read FTipoSessao write FTipoSessao;
     class function ObterInstancia: TTheMovieDBApi;
     procedure CriarSessaoConvidado;
-    procedure CriarSessaoConta(const pLogin, pSenha: string);
+    function FazerLoginConta(const pLogin, pSenha: string): Boolean;
     function ConsultarFilmesPopulares(const pLinguagem: string = 'en-US'; const pPagina: Integer = 1): TTMDBFilmesPopulares;
   end;
 
@@ -82,11 +82,6 @@ begin
   end;
 end;
 
-procedure TTheMovieDBApi.CriarSessaoConta(const pLogin, pSenha: string);
-begin
-
-end;
-
 procedure TTheMovieDBApi.CriarSessaoConvidado;
 var
   lSessaoConvidado: TTMDBSessaoConvidado;
@@ -97,6 +92,7 @@ begin
   lDados := TDados.ObterInstancia;
 
   try
+    TipoSessao := tsNenhum;
     FClient.BaseURL := THE_MOVIE_DB_API_URL + '/authentication/guest_session/new';
     Consultar;
     lJSON := FRequest.Response.JSONValue;
@@ -115,6 +111,33 @@ begin
   FreeAndNil(FRequest);
   FreeAndNil(FClient);
   inherited;
+end;
+
+function TTheMovieDBApi.FazerLoginConta(const pLogin, pSenha: string): Boolean;
+var
+  lDados: TDados;
+begin
+  lDados := TDados.ObterInstancia;
+  TipoSessao := tsNenhum;
+  Result := False;
+
+  if pLogin.Trim.IsEmpty then
+  begin
+    raise ELoginVazio.Create('O login está vazio');
+  end;
+
+  if pSenha.IsEmpty then
+  begin
+    raise ESenhaVazia.Create('A senha está vazia');
+  end;
+
+  FUsuario := TUsuario.ObterInstancia(lDados.FazerLogin(pLogin, pSenha));
+
+  if Assigned(FUsuario) then
+  begin
+    TipoSessao := tsConta;
+    Result := True;
+  end;
 end;
 
 class function TTheMovieDBApi.ObterInstancia: TTheMovieDBApi;

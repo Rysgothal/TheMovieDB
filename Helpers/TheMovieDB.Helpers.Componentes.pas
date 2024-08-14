@@ -15,7 +15,7 @@ type
   public
     function IsEmpty: Boolean;
   end;
-
+  
 implementation
 
 uses

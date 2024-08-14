@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.VirtualImage, Vcl.BaseImageCollection, Vcl.ImageCollection, Vcl.StdCtrls,
   Vcl.Mask, Vcl.ExtCtrls, Vcl.ComCtrls, Data.DB, IBX.IBDatabase,
-  TheMovieDB.Helpers.Componentes;
+  TheMovieDB.Helpers.Componentes, Vcl.Buttons;
 
 type
   TfrmAutenticacao = class(TForm)
@@ -151,27 +151,15 @@ end;
 
 procedure TfrmAutenticacao.Entrar;
 var
-  lDados: TDados;
+  lApi: TTheMovieDBApi;
 begin
-  lDados := TDados.ObterInstancia;
+  lApi := TTheMovieDBApi.ObterInstancia;
 
   try
-    if edtNome.IsEmpty then
+    if lApi.FazerLoginConta(edtNome.Text, edtSenha.Text) then
     begin
-      Application.MessageBox('Informe o usuário para o acesso ao sistema', 'Atenção', MB_OK + MB_ICONINFORMATION);
-      edtNome.Focar;
-      Exit;
+      ModalResult := mrOk;
     end;
-
-    if edtSenha.Text = EmptyStr then
-    begin
-      Application.MessageBox('O campo da senha está vazio, verifique!', 'Atenção', MB_OK + MB_ICONINFORMATION);
-      edtSenha.Focar;
-      Exit;
-    end;
-
-    lDados.FazerLogin(edtNome.Text, edtSenha.Text);
-    frmAutenticacao.ModalResult := mrOk;
   except
     on E: ESenhaIncorreta do
     begin

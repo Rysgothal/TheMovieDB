@@ -3,7 +3,8 @@ unit TheMovieDB.DataModule.Principal;
 interface
 
 uses
-  System.SysUtils, System.Classes, Vcl.BaseImageCollection, Vcl.ImageCollection;
+  System.SysUtils, System.Classes, Vcl.BaseImageCollection, Vcl.ImageCollection, System.ImageList, Vcl.ImgList,
+  Vcl.Controls;
 
 type
   TdtmPrincipal = class(TDataModule)

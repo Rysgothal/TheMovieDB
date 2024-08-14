@@ -22,7 +22,7 @@ type
   public
     destructor Destroy; override;
     class function ObterInstancia: TDados;
-    procedure FazerLogin(const pNome, pSenha: string);
+    function FazerLogin(const pNome, pSenha: string): Integer;
     procedure TestarConexao;
     function CriarContaConvidado(const pSessaoConvidado: TTMDBSessaoConvidado): Integer;
     function CriarQuery: TIBQuery;
@@ -128,13 +128,13 @@ begin
   inherited;
 end;
 
-procedure TDados.FazerLogin(const pNome, pSenha: string);
+function TDados.FazerLogin(const pNome, pSenha: string): Integer;
 var
   lQuery: TIBQuery;
 begin
   try
     lQuery := CriarQuery;
-    lQuery.SQL.Add(' select c.senha from conta c');
+    lQuery.SQL.Add(' select c.senha, c.codigo from conta c');
     lQuery.SQL.Add(' where c.login = :pLogin');
     lQuery.ParamByName('pLogin').Value := pNome;
     lQuery.Open;
@@ -148,6 +148,11 @@ begin
     if lQuery.FieldByName('SENHA').AsString <> THashMD5.GetHashString(pSenha + HASH_SALTING) then
     begin
       raise ESenhaIncorreta.Create('A senha está incorreta');
+    end;
+
+    case lQuery.IsEmpty of
+      True: Result := -1;
+      else  Result := lQuery.FieldByName('CODIGO').AsInteger;
     end;
   finally
     FreeAndNil(lQuery);

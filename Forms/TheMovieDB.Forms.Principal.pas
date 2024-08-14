@@ -3,7 +3,7 @@ unit TheMovieDB.Forms.Principal;
 interface
 
 uses
-  Winapi.Messages, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Messages, System.Variants, System.Classes, Vcl.Graphics, TheMovieDB.Classes.Thread,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ComCtrls, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.WinXPanels, Vcl.VirtualImage,
   Vcl.BaseImageCollection, Vcl.ImageCollection, Vcl.DBCtrls, Vcl.WinXCtrls, Vcl.Buttons;
 
@@ -85,6 +85,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure tmrTempoExpiracaoTimer(Sender: TObject);
     procedure btnCriarContaClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
     procedure CarregarFilmesPopulares;
@@ -103,8 +104,9 @@ implementation
 
 uses
   System.Net.HttpClient, TheMovieDB.Classes.TheMovieDBApi, System.DateUtils,
-  TheMovieDB.Classes.JSON.FilmesPopulares, TheMovieDB.Classes.Thread,
-  TheMovieDB.Helpers.TiposAuxiliares, System.SysUtils;
+  TheMovieDB.Classes.JSON.FilmesPopulares,
+  TheMovieDB.Helpers.TiposAuxiliares, System.SysUtils,
+  TheMovieDB.Forms.Cadastro;
 
 
 {$R *.dfm}
@@ -116,10 +118,10 @@ end;
 
 procedure TfrmPrincipal.CarregarFilmesPopulares;
 var
-  lThread: TThreadCarregarPoster;
+  lThreadCarregarPoster: TThreadCarregarPoster;
 begin
-  lThread := TThreadCarregarPoster.Create;
-  lThread.Start;
+  lThreadCarregarPoster := TThreadCarregarPoster.ObterInstancia;
+  lThreadCarregarPoster.Start;
 end;
 
 procedure TfrmPrincipal.CarregarMiniPerfil;
@@ -155,15 +157,29 @@ end;
 
 procedure TfrmPrincipal.CriarConta;
 begin
-  if not Assigned(frm) then
+  if not Assigned(frmCadastro) then
+  begin
+    frmCadastro := TfrmCadastro.Create(Self);
+  end;
 
+  frmCadastro.ShowModal;
+end;
+
+procedure TfrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+var
+  lThreadCarregarPoster: TThreadCarregarPoster;
+begin
+  lThreadCarregarPoster := TThreadCarregarPoster.ObterInstancia;
+  lThreadCarregarPoster.Cancelar := True;
+
+  Application.Terminate;
 end;
 
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
   CarregarMiniPerfil;
-  tmrTempoExpiracao.Enabled := True;
   CarregarFilmesPopulares;
+  tmrTempoExpiracao.Enabled := True;
 end;
 
 procedure TfrmPrincipal.tmrTempoExpiracaoTimer(Sender: TObject);

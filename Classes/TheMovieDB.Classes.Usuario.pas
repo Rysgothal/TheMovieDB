@@ -22,7 +22,7 @@ type
 implementation
 
 uses
-  System.SysUtils, IBX.IBQuery, TheMovieDB.Classes.Banco;
+  System.SysUtils, IBX.IBQuery, TheMovieDB.Classes.Banco, Data.DB;
 
 { TUsuario }
 
@@ -38,6 +38,13 @@ begin
     lQuery.SQL.Add('select C.CODIGO, C.NOME, C.SESSAO, C.DH_EXPIRACAO from conta c where c.codigo = :pID');
     lQuery.ParamByName('pID').Value := pID;
     lQuery.Open;
+    lQuery.First;
+
+    if lQuery.IsEmpty then
+    begin
+      FUsuario := nil;
+      Exit;
+    end;
 
     FCodigo := lQuery.FieldByName('codigo').AsInteger;
     FNome := lQuery.FieldByName('nome').AsString;
