@@ -90,8 +90,6 @@ type
     { Private declarations }
     procedure CarregarFilmesPopulares;
     procedure CarregarMiniPerfil;
-    procedure CarregarMiniPerfilConvidado;
-    procedure CarregarMiniPerfilConta;
     procedure CriarConta;
   public
     { Public declarations }
@@ -136,22 +134,6 @@ begin
     Application.Terminate;
   end;
 
-  case lAPi.TipoSessao of
-    tsConvidado: CarregarMiniPerfilConvidado;
-    tsConta: CarregarMiniPerfilConta;
-  end;
-end;
-
-procedure TfrmPrincipal.CarregarMiniPerfilConta;
-begin
-
-end;
-
-procedure TfrmPrincipal.CarregarMiniPerfilConvidado;
-var
-  lApi: TTheMovieDBApi;
-begin
-  lAPi := TTheMovieDBApi.ObterInstancia;
   lblNome.Caption := lApi.Usuario.Nome;
 end;
 

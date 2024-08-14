@@ -4,11 +4,13 @@ interface
 
 uses
   System.SysUtils, REST.Client, TheMovieDB.Helpers.TiposAuxiliares,
-  TheMovieDB.Classes.JSON.FilmesPopulares, TheMovieDB.Classes.Usuario;
+  TheMovieDB.Classes.JSON.FilmesPopulares, TheMovieDB.Classes.Usuario,
+  TheMovieDB.Classes.Constantes;
 
 type
   TTheMovieDBApi = class
   private
+    FURL: TTheMovieDBApiURL;
     FClient: TRESTClient;
     FRequest: TRESTRequest;
     FChaveValida: Boolean;
@@ -16,21 +18,17 @@ type
     FTipoSessao: TTipoSessao;
     constructor Create;
     class var FTheMovieDBApi: TTheMovieDBApi;
-
-    const THE_MOVIE_DB_API_URL = 'https://api.themoviedb.org/3';
-    const THE_MOVIE_DB_API_KEY = 'b3617d826e0f0c422bf57fdb53a0b418';
-    const THE_MOVIE_DB_API_ACESS_TOKEN = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMzYxN2Q4MjZlMGYwYzQyMmJmNTdmZGI1M' +
-      '2EwYjQxOCIsIm5iZiI6MTcyMjk0NDUxMC4xNDI3MzUsInN1YiI6IjY2NGU4NmEwNDA3YmFlZGY4MGJiMGI5YyIsInNjb3BlcyI6WyJhcGlfc' +
-      'mVhZCJdLCJ2ZXJzaW9uIjoxfQ.hxe0z1VkWHVSCo0IBCnWD-IxqpPl0_ug1PYlP2Ccz04';
-
-    procedure Consultar;
+    function SolicitarToken: string;
+    procedure AutenticarToken(const pToken: string);
   public
     destructor Destroy; override;
     property ChaveValida: Boolean read FChaveValida;
     property Usuario: TUsuario read FUsuario write FUsuario;
     property TipoSessao: TTipoSessao read FTipoSessao write FTipoSessao;
+    property URL: TTheMovieDBApiURL read FURL;
     class function ObterInstancia: TTheMovieDBApi;
     procedure CriarSessaoConvidado;
+    procedure CriarConta(const pNome, pLogin, pSenha: string);
     function FazerLoginConta(const pLogin, pSenha: string): Boolean;
     function ConsultarFilmesPopulares(const pLinguagem: string = 'en-US'; const pPagina: Integer = 1): TTMDBFilmesPopulares;
   end;
@@ -40,46 +38,82 @@ implementation
 uses
   REST.Types, Vcl.Dialogs, TheMovieDB.Classes.JSON.SessaoConvidado, REST.JSON, System.JSON,
   TheMovieDB.Classes.Exceptions, TheMovieDB.Helpers.TheMovieDB,
-  TheMovieDB.Classes.Banco;
+  System.Net.HttpClient, Soap.SOAPHTTPTrans,
+  TheMovieDB.Classes.Banco, TheMovieDB.Classes.JSON.SessaoConta;
 
 { TTheMovieDBApi }
 
-procedure TTheMovieDBApi.Consultar;
+procedure TTheMovieDBApi.AutenticarToken(const pToken: string);
 begin
-  FClient.Accept := 'application/json';
-  FClient.AddParameter('Authorization', THE_MOVIE_DB_API_ACESS_TOKEN, TRESTRequestParameterKind.pkHTTPHEADER,
-    [poDoNotEncode]);
+  FClient.ContentType := 'application/json';
+//  FClient.Authenticator.Authenticate();
 
-  FRequest.Client := FClient;
+  FClient.BaseURL := FURL.URL_AUTENTICAR_TOKEN + pToken + '/allow' ;
   FRequest.Execute;
+  FRequest.Response.JSONValue;
 end;
 
 function TTheMovieDBApi.ConsultarFilmesPopulares(const pLinguagem: string; const pPagina: Integer): TTMDBFilmesPopulares;
 var
   lJSON: TJSONValue;
 begin
-  FClient.BaseURL := THE_MOVIE_DB_API_URL + '/movie/popular?language=' + pLinguagem + '?page=' + pPagina.ToString;
-  Consultar;
+  FClient.BaseURL := FURL.URL_BASE + '/movie/popular?language=' + pLinguagem + '?page=' + pPagina.ToString;
+  FRequest.Execute;
   lJSON := FRequest.Response.JSONValue;
   Result := TJson.JsonToObject<TTMDBFilmesPopulares>(TJSONObject(lJSON));
 end;
 
 constructor TTheMovieDBApi.Create;
 begin
-  FClient := TRESTClient.Create(THE_MOVIE_DB_API_URL + '/authentication');
+  FClient := TRESTClient.Create(FURL.URL_BASE + '/authentication');
+  FClient.Accept := 'application/json';
+
   FRequest := TRESTRequest.Create(FClient);
+  FRequest.AddAuthParameter('Authorization', FURL.API_ACESS_TOKEN, TRESTRequestParameterKind.pkHTTPHEADER,
+    [poDoNotEncode]);
 
   FUsuario := nil;
   FTipoSessao := tsNenhum;
   FTheMovieDBApi := nil;
 
-  Consultar;
+  FRequest.Execute;
   FChaveValida := FRequest.StatusOK;
 
   if not FChaveValida then
   begin
     raise ETokenInvalido.Create('Chave inválida');
   end;
+end;
+
+procedure TTheMovieDBApi.CriarConta(const pNome: string; const pLogin: string; const pSenha: string);
+var
+  lDados: TDados;
+  lToken: string;
+begin
+  if pNome.Trim.IsEmpty then
+  begin
+    raise ENomeVazio.Create('O nome não foi preenchido');
+  end;
+
+  if pLogin.Trim.IsEmpty then
+  begin
+    raise ELoginVazio.Create('O login não foi preenchido');
+  end;
+
+  if pSenha.IsEmpty then
+  begin
+    raise ESenhaVazia.Create('A senha não pode ser vazia');
+  end;
+
+  lDados := TDados.ObterInstancia;
+
+  if lDados.VerificarExisteConta(pLogin) then
+  begin
+    raise ELoginJaExiste.Create('Esse login já foi cadastrado, tente outro');
+  end;
+
+  lToken := SolicitarToken;
+  AutenticarToken(lToken);
 end;
 
 procedure TTheMovieDBApi.CriarSessaoConvidado;
@@ -93,8 +127,8 @@ begin
 
   try
     TipoSessao := tsNenhum;
-    FClient.BaseURL := THE_MOVIE_DB_API_URL + '/authentication/guest_session/new';
-    Consultar;
+    FClient.BaseURL := FURL.URL_BASE + '/authentication/guest_session/new';
+    FRequest.Execute;
     lJSON := FRequest.Response.JSONValue;
 
     lSessaoConvidado := TJson.JsonToObject<TTMDBSessaoConvidado>(TJSONObject(lJSON));
@@ -148,6 +182,23 @@ begin
   end;
 
   Result := FTheMovieDBApi;
+end;
+
+function TTheMovieDBApi.SolicitarToken: string;
+var
+  lJSON: TJSONValue;
+  lSessaoConta: TTMDBSessaoConta;
+begin
+  FClient.BaseURL := FURL.URL_BASE + '/authentication/token/new';
+  FRequest.Execute;
+  lJSON := FRequest.Response.JSONValue;
+  lSessaoConta := TJson.JsonToObject<TTMDBSessaoConta>(TJSONObject(lJSON));
+
+  try
+    Result := lSessaoConta.SessaoID;
+  finally
+    FreeAndNil(lSessaoConta);
+  end;
 end;
 
 initialization

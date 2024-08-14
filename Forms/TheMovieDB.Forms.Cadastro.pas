@@ -9,16 +9,16 @@ uses
 type
   TfrmCadastro = class(TForm)
     gbxNovoUsuario: TGroupBox;
-    edtNome: TLabeledEdit;
+    edtLogin: TLabeledEdit;
     edtSenha: TLabeledEdit;
-    btnSair: TButton;
-    btnLogin: TButton;
-    lblNome: TLabeledEdit;
+    btnCriarConta: TButton;
+    edtNome: TLabeledEdit;
     pnlLogo: TPanel;
     vtiLogo: TVirtualImage;
     shpLinhaEnvolta: TShape;
-    Shape1: TShape;
+    procedure btnCriarContaClick(Sender: TObject);
   private
+    procedure CriarConta;
     { Private declarations }
   public
     { Public declarations }
@@ -29,6 +29,33 @@ var
 
 implementation
 
+uses
+  TheMovieDB.Classes.TheMovieDBApi;
+
 {$R *.dfm}
+
+{ TfrmCadastro }
+
+procedure TfrmCadastro.btnCriarContaClick(Sender: TObject);
+begin
+  CriarConta;
+end;
+
+procedure TfrmCadastro.CriarConta;
+var
+  lApi: TTheMovieDBApi;
+begin
+  lApi := TTheMovieDBApi.ObterInstancia;
+
+  try
+    lAPi.CriarConta(edtNome.Text, edtNome.Text, edtSenha.Text);
+    Application.MessageBox('Conta criada com sucesso!', 'Sucesso');
+  except
+    on E: Exception do
+    begin
+      Application.MessageBox(PChar(E.Message), 'Atenção');
+    end;
+  end;
+end;
 
 end.

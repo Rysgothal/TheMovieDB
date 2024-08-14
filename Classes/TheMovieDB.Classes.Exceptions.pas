@@ -11,6 +11,8 @@ type
   ELoginNaoExiste = class(Exception);
   ELoginVazio = class(Exception);
   ESenhaVazia = class(Exception);
+  ENomeVazio = class(Exception);
+  ELoginJaExiste = class(Exception);
 
 implementation
 

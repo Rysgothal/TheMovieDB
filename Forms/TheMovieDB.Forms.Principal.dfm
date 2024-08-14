@@ -2,7 +2,7 @@ object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
   HorzScrollBar.Tracking = True
-  BorderStyle = bsDialog
+  BorderStyle = bsSingle
   Caption = 'TMDB - The Movie Database'
   ClientHeight = 660
   ClientWidth = 967

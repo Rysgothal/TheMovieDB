@@ -18,9 +18,9 @@ type
     class var FDados: TDados;
     procedure ConfigurarBanco;
     procedure LerConfiguracaoINI(const pIni: TINIFile);
-    function VerificarExisteConta(const pNome: string): Boolean;
   public
     destructor Destroy; override;
+    function VerificarExisteConta(const pNome: string): Boolean;
     class function ObterInstancia: TDados;
     function FazerLogin(const pNome, pSenha: string): Integer;
     procedure TestarConexao;
