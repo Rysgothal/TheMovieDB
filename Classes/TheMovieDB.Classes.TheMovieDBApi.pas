@@ -36,21 +36,58 @@ type
 implementation
 
 uses
-  REST.Types, Vcl.Dialogs, TheMovieDB.Classes.JSON.SessaoConvidado, REST.JSON, System.JSON,
+  REST.Types, TheMovieDB.Classes.JSON.SessaoConvidado, REST.JSON, System.JSON,
   TheMovieDB.Classes.Exceptions, TheMovieDB.Helpers.TheMovieDB,
-  System.Net.HttpClient, Soap.SOAPHTTPTrans,
-  TheMovieDB.Classes.Banco, TheMovieDB.Classes.JSON.SessaoConta;
+//  System.Net.HttpClient, Soap.SOAPHTTPTrans,
+//  FMX.WebBrowser,
+  SHDocVw,
+  ActiveX, MSHTML,
+  TheMovieDB.Classes.Banco, TheMovieDB.Classes.JSON.SessaoConta,
+  System.Classes, Vcl.Forms;
 
 { TTheMovieDBApi }
 
 procedure TTheMovieDBApi.AutenticarToken(const pToken: string);
-begin
-  FClient.ContentType := 'application/json';
+//var
+//  lNavegador: TWebBrowser;
+//  doc: OleVariant;
+//  element: variant;
+//  LStream: TStringStream;
+//  Stream : IStream;
+//  LPersistStreamInit : IPersistStreamInit;
+//  lHTML: HTML;
+begin                                      //username e password e login_button
+//  lNavegador := TWebBrowser.Create(nil);
+//  lNavegador.Navigate(FURL.URL_LOGIN);
+
+//  repeat Application.ProcessMessages until lNavegador.Busy;
+
+//  doc := lNavegador.OleObject.Document as IHTMLDocument2;
+//  doc := lNavegador.OleObject.Document.getElementsByTagName('username')
+//  .setAttribute('attribute', 'rysgothal');
+
+//  lNavegador.OleObject.Document.getElementsByTagName('password').setAttribute('attribute', '181370Lu');
+
+//  doc := coHTMLDocument.Create as IHTMLDocument2;
+//  doc.write(html);
+//  doc.Close;
+//  ...
+//  element := doc.getElementById('elementId');
+//  ...
+//  element.getAttribute('value', 0);
+
+//  .All.Tags('input').item('username').Text := 'rysgothal';
+
+//  lNavegador..Document.All.Tags('input').item('meucampo').text;
+
+
+
+  //  FClient.ContentType := 'application/json';
 //  FClient.Authenticator.Authenticate();
 
-  FClient.BaseURL := FURL.URL_AUTENTICAR_TOKEN + pToken + '/allow' ;
-  FRequest.Execute;
-  FRequest.Response.JSONValue;
+//  FClient.BaseURL := FURL.URL_AUTENTICAR_TOKEN + pToken + '/allow' + FURL.API_KEY;
+//  FRequest.Execute;
+//  FRequest.Response.JSONValue;
 end;
 
 function TTheMovieDBApi.ConsultarFilmesPopulares(const pLinguagem: string; const pPagina: Integer): TTMDBFilmesPopulares;
